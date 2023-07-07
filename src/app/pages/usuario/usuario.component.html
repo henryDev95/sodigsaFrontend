@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span>{{title}}</span>
+
+          <form class="form mt-5" [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" >
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nombres" id="name"  formControlName = "name" autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('name')?.hasError('required') && usuarioForm.get('name')?.touched">
+                 <span>Los nombres <strong> es obligatorio </strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Apellidos" id="lastname" formControlName = "lastname"  autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('lastname')?.hasError('required') && usuarioForm.get('lastname')?.touched">
+                <span>Los apellidos <strong> es obligatorio </strong></span>
+             </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Número de cédula" id="dni"  formControlName ="dni" autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('dni')?.hasError('required') && usuarioForm.get('dni')?.touched">
+                <span>La dni <strong> es obligatorio </strong></span>
+             </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Correo electrónico"   formControlName = "email" id="email" autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('email')?.hasError('required') && usuarioForm.get('email')?.touched">
+                <span>El correo electrónico <strong> es obligatorio </strong></span>
+             </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Celular"   formControlName = "phone" id="phone" autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('phone')?.hasError('required') && usuarioForm.get('phone')?.touched">
+                <span>El celular <strong> es obligatorio </strong></span>
+             </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Dirección"   formControlName = "address" id="address" autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('address')?.hasError('required') && usuarioForm.get('address')?.touched">
+                <span>La dirección <strong> es obligatorio </strong></span>
+             </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nota"   formControlName = "note" id="note" autocomplete="off">
+              <div class="text-danger"    *ngIf=" usuarioForm.get('note')?.hasError('required') && usuarioForm.get('note')?.touched">
+                <span>La nota <strong> es obligatorio </strong></span>
+             </div>
+            </div>
+            <button [routerLink]="['/']" class="btn btn-secondary float-start">Cerrar</button>
+            <button type="submit" [disabled]="usuarioForm.invalid"  class="btn btn-primary float-end"  >Guardar</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

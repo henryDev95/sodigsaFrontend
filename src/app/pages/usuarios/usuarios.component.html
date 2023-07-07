@@ -4,24 +4,23 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body text-center">
-          <span>LISTADO DE PRODUCTOS</span>
-          <button class="btn btn-success float-end" routerLink="/createProduct">Nuevo</button>
+          <span>LISTADO DE USUARIOS</span>
+          <button class="btn btn-success float-end" routerLink="/user/new">Nuevo</button>
           <table class="table table-striped mt-5">
             <thead>
               <tr>
-                <th class="text-center">ID</th>
                 <th class="text-center">Nombre</th>
                 <th class="text-center">Apellido</th>
                 <th class="text-center">DNI</th>
                 <th class="text-center">Celular</th>
-                <th class="text-center">Direción</th>
+                <th class="text-center">Dirección</th>
                 <th class="text-center">Nota</th>
                 <th class="text-center">Email</th>
+                <th class="text-center"></th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let user of users">
-                <td class="text-center">{{user.id}}</td>
                 <td class="text-center">{{user.name}}</td>
                 <td class="text-center">{{user.lastname}}</td>
                 <td class="text-center">{{user.dni}}</td>
@@ -29,6 +28,10 @@
                 <td class="text-center">{{user.address}}</td>
                 <td class="text-center">{{user.note}}</td>
                 <td class="text-center">{{user.email}}</td>
+                <td>
+                  <i [routerLink]="['/user', user.id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                  <i (click)="eliminarProducto(user.id)" class="fa-solid fa-trash text-danger"></i>
+                </td>
               </tr>
             </tbody>
           </table>
